@@ -14,9 +14,8 @@ removed, is shifted to lowercase and added to an array named "wordArray".
 Once all lines of the file have been read, this array is returned.
 =end
 def ReadFromFile()
-    puts Dir.pwd
     wordArray = Array.new
-    File.open("words.txt", "r") do |file| # Uncomment this to have a larger list (466000+ words)
+    File.open("mastermindWordList.txt", "r") do |file| # Uncomment this to have a larger list (466000+ words)
     # Note: Only use if in original repository that contains words.txt
     # File.open("mastermindWordList.txt", "r") do |file| # Comment this if previous line is uncommented
         file.each_line do |word|
@@ -310,7 +309,6 @@ def MainGame(wordArray)
             array, contains, hit, used = CompareWords(codeWord, guess, contains, hit, used)
             guesses -= 1
             if (array.count(" Hit") == 5)
-                Fireworks(0.10)
                 correct = true
                 FeedbackDisplay(guess, array, guesses, contains, hit, used)
                 puts "YOU WON".center(CONSOLE_WIDTH)
@@ -333,150 +331,6 @@ def Blank(lines)
     (0..lines).each do |i|
         puts ''
     end
-end
-
-# Ignore all of the below :) 
-def Fireworks(time)
-    #Frame 1
-    Blank(27)
-    puts ' /                   /'
-        puts '*                    |      /'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 2
-        Blank(25)
-        puts '                               /'
-        puts '  /                           / '
-        puts ' *                   |       *'
-        puts '*                    *      *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 3
-        Blank(23)
-        puts '                                 /'
-        puts '    /                           /'
-        puts '   *                           *'
-        puts '  *                  |        *'
-        puts ' *                   *       *'
-        puts '*                    *      *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 3
-        Blank(21)
-        puts '                                   /'
-        puts '      /                           /'
-        puts '     *                           *'
-        puts '    *                           *'
-        puts '   *                 |         *'
-        puts '  *                  *        *'
-        puts ' *                   *       *'
-        puts '*                    *      *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 4
-        Blank(18)
-        puts '                                      X'
-        puts '                                      '
-        puts '        /                            '
-        puts '       *                           *'
-        puts '      *                           *'
-        puts '     *                           *'
-        puts '    *                |          *'
-        puts '   *                 *         *'
-        puts '  *                  *        *'
-        puts ' *                   *       *'
-        puts '*                    *      *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 5
-        Blank(16)
-        puts '            0'
-        puts '                                     \ /'
-        puts '                                    — X —'
-        puts '         *                           / \ '
-        puts '        *                            '
-        puts '       *                           *'
-        puts '      *                           *'
-        puts '     *               |           *'
-        puts '    *                *          *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 6
-        Blank(14)
-        puts '           \ /'
-        puts '          — 0 —                     *****'
-        puts '           / \                     * \ / *'
-        puts '                                  * — X — *'
-        puts '         *                         * / \ *'
-        puts '        *            0              *****'
-        puts '       *                           *'
-        puts '      *                           *'
-        puts '     *               *           *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 7
-        Blank(13)
-        puts '          *   *'
-        puts '           \ /'
-        puts '        * — 0 — *                    '
-        puts '           / \                       \ / '
-        puts '          *   *                     — X — '
-        puts '         *          \ /              / \ '
-        puts '        *          — 0 —            '
-        puts '       *            / \            *'
-        puts '                                  *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 8
-        Blank(14)
-        puts '           \ / '
-        puts '          — 0 —'
-        puts '           / \ '
-        puts '                   :::::              X'
-        puts '         *       :: \ / ::'
-        puts '        *       :: — 0 — ::'
-        puts '                 :: / \ ::         *'
-        puts '                   :::::'
-        puts '                     *'
-        puts '                     *'
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 9
-        Blank(15)
-        puts '            0'
-        puts ''
-        puts ''
-        puts '         *          \ / '
-        puts '                   — 0 —'
-        puts '                    / \ '
-        puts ''
-        puts '                     *'
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 9
-        Blank(19)
-        puts '                     0'
-        puts ''
-        puts ''
-        puts '                     *'
-        sleep(time)
-        system "clear" or system "cls"
-        #Frame 10
-        sleep(time)
 end
 
 CONSOLE_WIDTH = 119
